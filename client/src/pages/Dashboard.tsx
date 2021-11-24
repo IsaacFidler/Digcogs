@@ -16,7 +16,7 @@ import '../styles/Dashboard.css';
 
 const Dashboard = () => {
   return (
-    <Container className ="dashboard-container">
+    <Container className="dashboard-container">
       <h1 className="dashboard-header">Search by label or Artist</h1>
       <InputGroup className="mb-3 search-bar">
         <FormControl
@@ -32,9 +32,15 @@ const Dashboard = () => {
             border: '#69F0AE',
           }}
         >
-          Button
+          Search
         </Button>
       </InputGroup>
+      <div className="dashboard-recommendation">
+        <div>
+          <div className="divider"></div>
+        </div>
+          <h1 className="recommendation-header">Search by label or Artist</h1>
+      </div>
     </Container>
   );
 };

@@ -15,6 +15,7 @@ body{
 .search-bar{
   width: 600px;
   height: 50px;
+  margin-bottom: 60px;
 }
 
 .dashboard-container{
@@ -22,4 +23,34 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.divider{
+  height: 0px;
+  width: 90vw;
+  margin-top: -500px;
+  color: white;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.divider1{
+  height: 10px;
+  width: 700px;
+  /* margin-top: -500px; */
+  color: white;
+  border: 1px solid red;
+}
+
+.dashboard-recommendation{
+  margin-top:60px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 1000px;
+}
+
+.recommendation-header{
+
 }
