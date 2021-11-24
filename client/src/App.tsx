@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Auth0ProviderWithHistory from './auth0provider';
@@ -11,25 +11,55 @@ import {
   Image,
 } from 'react-bootstrap';
 
+import ProtectedRoute from './routes/ProtectedRoutes';
+
 //react router
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
+  Switch
 } from 'react-router-dom'
 
 //components
 
 import Header from './components/Header'
+import Loading from './components/Loading'
+
+//pages
+
+import Dashboard from './pages/Dashboard'
+import Home from './pages/Home'
+
+//
 import { useAuth0 } from '@auth0/auth0-react';
+import { useSelector } from 'react-redux';
 
 function App() {
-  const {loginWithRedirect, logout, user, isLoading} = useAuth0();
+
+  const { loginWithRedirect, logout, user, isLoading, } = useAuth0();
+  const { isAuthenticated } = useAuth0();
+
+  console.log('workking  ' + isAuthenticated);
+
+  const { auth } = useSelector((state :any) => state.auth)
+
   return (
     <Auth0ProviderWithHistory>
       <Router>
         <div className="App">
           <Header />
+          <div className="container flex-grow-1">
+            <Route path="/">
+              {auth ? (
+                <Redirect to="/dashboard" />
+              ) : (
+                // <div>{isAuthenticated}</div>
+                <div>home</div>
+              )}
+            </Route>
+            <ProtectedRoute path="/dashboard" component={Dashboard} />
+          </div>
         </div>
       </Router>
     </Auth0ProviderWithHistory>

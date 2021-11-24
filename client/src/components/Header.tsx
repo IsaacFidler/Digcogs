@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           </Nav>
           <Nav>
             {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
-            <AuthNav/>
+            <AuthNav />
           </Nav>
         </Navbar.Collapse>
       </Container>
