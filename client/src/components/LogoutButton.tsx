@@ -1,4 +1,7 @@
 // src/components/logout-button.js
+import {
+  Button,
+} from 'react-bootstrap';
 
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -11,17 +14,22 @@ const LogoutButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <button
-      className="btn btn-danger btn-block"
-      onClick={() =>{
-        dispatch(logout())
+    <Button
+      variant="outline-primary"
+      className="btn logout-button"
+      style={{
+        color: '#69F0AE',
+        borderColor: '#69F0AE',
+      }}
+      onClick={() => {
+        dispatch(logout());
         logout({
           returnTo: window.location.origin,
-        })
+        });
       }}
     >
       Log Out
-    </button>
+    </Button>
   );
 };
 

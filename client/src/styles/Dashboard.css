@@ -1,0 +1,25 @@
+/* #36474F */
+
+body{
+  background-color: #36474F ;
+}
+
+.dashboard-header{
+  color: rgb(231, 231, 231);
+  font-size: 30px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+}
+
+.search-bar{
+  width: 600px;
+  height: 50px;
+}
+
+.dashboard-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

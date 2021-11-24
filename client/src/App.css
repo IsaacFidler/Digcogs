@@ -1,9 +1,15 @@
 .App {
   text-align: center;
+  /* background-image: url('./assets/background.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  height: 100vh;
 }
-
 
 .button {
   color: #69F0AE;
-  border: 1px solid red;
+}
+.top-block{
+  height: 79px;
 }

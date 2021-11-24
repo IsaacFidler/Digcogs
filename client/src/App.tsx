@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
+import background from './assets/background.jpeg';
 import './App.css';
 import Auth0ProviderWithHistory from './auth0provider';
 import {
@@ -38,10 +38,8 @@ import { useSelector } from 'react-redux';
 function App() {
 
   const { loginWithRedirect, logout, user, isLoading, } = useAuth0();
-  const { isAuthenticated } = useAuth0();
 
-  console.log('workking  ' + isAuthenticated);
-
+  //check if auth on redux storeEnhancers
   const { auth } = useSelector((state :any) => state.auth)
 
   return (
@@ -49,14 +47,10 @@ function App() {
       <Router>
         <div className="App">
           <Header />
-          <div className="container flex-grow-1">
+          <div className="top-block"></div>
+          <div className="the-container flex-grow-1">
             <Route path="/">
-              {auth ? (
-                <Redirect to="/dashboard" />
-              ) : (
-                // <div>{isAuthenticated}</div>
-                <div>home</div>
-              )}
+              {auth ? <Redirect to="/dashboard" /> : <Home />}
             </Route>
             <ProtectedRoute path="/dashboard" component={Dashboard} />
           </div>
