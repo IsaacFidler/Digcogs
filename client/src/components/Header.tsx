@@ -3,6 +3,9 @@ import logo from '../assets/digcogsLogo.png';
 import { Container, Nav, Navbar, NavDropdown, Button, Image } from 'react-bootstrap';
 import '../styles/Header.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import MainNav from './MainNav';
+import AuthNav from './AuthNav';
 const Header: React.FC = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -12,8 +15,6 @@ const Header: React.FC = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -27,10 +28,8 @@ const Header: React.FC = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+            {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
+            <AuthNav/>
           </Nav>
         </Navbar.Collapse>
       </Container>
