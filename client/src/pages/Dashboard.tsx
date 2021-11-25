@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   Container,
@@ -13,8 +13,16 @@ import {
 } from 'react-bootstrap';
 
 import '../styles/Dashboard.css';
+import { getSearchResults } from '../api/getSearchResults';
 
 const Dashboard = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(()=> {
+    getSearchResults('hessle+audio', setSearchResults )
+    console.log(searchResults)
+  },[])
   return (
     <Container className="dashboard-container">
       <h1 className="dashboard-header">Search by label or Artist</h1>
@@ -23,6 +31,7 @@ const Dashboard = () => {
           placeholder="Search by label or artist"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
         <Button
           variant="secondary"
@@ -39,7 +48,7 @@ const Dashboard = () => {
         <div>
           <div className="divider"></div>
         </div>
-          <h1 className="recommendation-header">Search by label or Artist</h1>
+        <h1 className="recommendation-header">Search by label or Artist</h1>
       </div>
     </Container>
   );
