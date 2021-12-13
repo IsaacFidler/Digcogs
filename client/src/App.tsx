@@ -30,7 +30,7 @@ import Loading from './components/Loading'
 
 import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
-
+import ResultDetail from './pages/ResultDetail';
 //
 import { useAuth0 } from '@auth0/auth0-react';
 import { useSelector } from 'react-redux';
@@ -53,6 +53,10 @@ function App() {
               {auth ? <Redirect to="/dashboard" /> : <Home />}
             </Route>
             <ProtectedRoute path="/dashboard" component={Dashboard} />
+            <ProtectedRoute
+              path="/result/:id"
+              component={ResultDetail}
+            />
           </div>
         </div>
       </Router>

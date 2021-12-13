@@ -43,14 +43,23 @@ body{
 
 .dashboard-recommendation{
   margin-top:60px;
-  border: 1px solid red;
-  display: flex;
+  border: 1px solid blue;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 1000px;
+  height: 100%;
 }
 
 .recommendation-header{
+
+}
+
+.search-results{
+  margin-top: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+
 
 }

@@ -15,10 +15,11 @@ import {
 
 import '../styles/Dashboard.css';
 import { getSearchResults } from '../api/getSearchResults'
+import ResultCard from '../components/ResultCard';
 
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<any[]>([]);
 
   useEffect(()=> {
     // getSearchResults('hessle+audio', setSearchResults )
@@ -34,6 +35,7 @@ const Dashboard = () => {
   const handleSubmit = (evt: { preventDefault: () => void }) => {
     evt.preventDefault();
     getSearchResults(searchTerm.replace(/ /g, '+'), setSearchResults);
+
     console.log(searchResults);
     setSearchTerm('');
   };
@@ -66,8 +68,14 @@ const Dashboard = () => {
       <div className="dashboard-recommendation">
         <div>
           <div className="divider"></div>
+          <div className="search-results">
+            {searchResults ? (
+              searchResults.map((result) => (
+                  <ResultCard id={result.id} title={result.title} cover_image={result.cover_image} />
+              ))
+            ) : <div>nos reulst</div>}
+          </div>
         </div>
-        <h1 className="recommendation-header">Search by label or Artist</h1>
       </div>
     </Container>
   );
