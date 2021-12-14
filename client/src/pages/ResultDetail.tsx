@@ -6,15 +6,17 @@ import {
 } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
-import ResultCard from '../components/ResultCard';
 
 import { getResultVideos } from '../api/getResultVideos';
 import { getIndividualReleaseInfo } from '../api/getIndividualReleaseInfo';
+
+import '../styles/ResultDetail.css'
 
 const ResultDetail = () => {
   const { id } = useParams();
   //need to write interface for object coming from discogs api
   const [releases, setReleases] = useState<any[]>([]);
+
   const [releaseIds, setReleaseIds] = useState<number[]>([]);
   const [releaseTitle, setReleaseTitle] = useState<number[]>([]);
   const [releaseArtist, setReleaseArtist] = useState<number[]>([]);
@@ -45,20 +47,23 @@ const ResultDetail = () => {
   useEffect(() => {
     setVideoArrayUri(videoArray.map((item) => item.uri));
     setVideoArrayTitles(videoArray.map((item) => item.title));
-
   }, [videoArray]);
-
-
 
   return (
     <Container className="video-container">
+      <Button
+        variant="primary"
+        onClick={() => setReleaseCounter(releaseCounter - 1)}
+      >
+        Previous
+      </Button>
       <Button
         variant="primary"
         onClick={() => setReleaseCounter(releaseCounter + 1)}
       >
         Next
       </Button>
-      <div className="search-results">
+      <div className="video-info">
         {releaseIds ? (
           <div>
             <div>{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
