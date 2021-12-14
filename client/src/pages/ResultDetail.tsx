@@ -11,6 +11,7 @@ import { getResultVideos } from '../api/getResultVideos';
 import { getIndividualReleaseInfo } from '../api/getIndividualReleaseInfo';
 
 import '../styles/ResultDetail.css'
+import { Video } from '../components/Video';
 
 const ResultDetail = () => {
   const { id } = useParams();
@@ -47,6 +48,7 @@ const ResultDetail = () => {
   useEffect(() => {
     setVideoArrayUri(videoArray.map((item) => item.uri));
     setVideoArrayTitles(videoArray.map((item) => item.title));
+    console.log(videoArrayUris[releaseCounter]);
   }, [videoArray]);
 
   return (
@@ -68,6 +70,7 @@ const ResultDetail = () => {
           <div>
             <div>{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
             <div>{releaseIds[releaseCounter]}</div>
+            <Video uri={videoArrayUris[releaseCounter]} />
           </div>
         ) : (
           <div>nos reulst</div>

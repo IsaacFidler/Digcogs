@@ -11,6 +11,7 @@ export const getIndividualReleaseInfo = (
     .then((response) => response.json())
     // .then((result) => setState(result.releases))
     .then((result) => {
+      console.log(result.videos)
       setState(result.videos)
     })
     .catch((error) => console.log('error', error));
