@@ -1,4 +1,4 @@
-export const getIndividualReleaseInfop = (
+export const getIndividualReleaseInfo = (
   releaseId: string | undefined,
   setState: (arg0: any) => any
 ) => {
@@ -10,6 +10,9 @@ export const getIndividualReleaseInfop = (
     //The json() method of the Response interface takes a Response stream and reads it to completion. It returns a promise which resolves with the result of parsing the body text as JSON.
     .then((response) => response.json())
     // .then((result) => setState(result.releases))
-    .then((result) => console.log(result.releases))
+    .then((result) => {
+      setState(result.videos)
+    })
     .catch((error) => console.log('error', error));
+
 };
