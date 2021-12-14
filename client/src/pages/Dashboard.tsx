@@ -34,6 +34,7 @@ const Dashboard = () => {
 
   const handleSubmit = (evt: { preventDefault: () => void }) => {
     evt.preventDefault();
+
     getSearchResults(searchTerm.replace(/ /g, '+'), setSearchResults);
 
     console.log(searchResults);
