@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 
 import { getResultVideos } from '../api/getResultVideos';
 import { getIndividualReleaseInfo } from '../api/getIndividualReleaseInfo';
-
+import { youtube_parser } from '../helpers/youtubeRegex';
 import '../styles/ResultDetail.css'
 import { Video } from '../components/Video';
 
@@ -29,11 +29,11 @@ const ResultDetail = () => {
   const [videoArray, setVideoArray] = useState<any[]>([]);
   const [videoArrayUris, setVideoArrayUri] = useState<any[]>([]);
   const [videoArrayTitles, setVideoArrayTitles] = useState<any[]>([]);
-
+  const [videoArrayLength, setVideoArrayLength] = useState(0);
+  const [videoArrayPointer, setVideoArrayPointer] = useState(0);
   //useEffect once on initila render
   useEffect(() => {
     getResultVideos(id, setReleases);
-
   }, []);
 
   //useEffect once when the releases for the label have been fetched
@@ -54,17 +54,31 @@ const ResultDetail = () => {
   }, [releaseIds]);
 
   useEffect(() => {
+    console.log(releaseIds[releaseCounter])
     getIndividualReleaseInfo(releaseIds[releaseCounter], setVideoArray);
 
   }, [releaseCounter]);
 
   //useEffect once when the array of info for each video has been fetched
   useEffect(() => {
-    setVideoArrayUri(videoArray.map((item) => item.uri));
+
+    if (videoArray){
+    setVideoArrayUri(videoArray.map((item) => youtube_parser(item.uri)));
     setVideoArrayTitles(videoArray.map((item) => item.title));
-    console.log(videoArrayTitles)
+    } else {
+      console.log('no videos')
+    }
+
   }, [videoArray]);
 
+  useEffect(() => {
+    console.log(videoArrayTitles)
+    console.log(videoArrayUris)
+  }, [videoArrayTitles]);
+
+  const changeVideo = (index : number) => {
+    setVideoArrayPointer(index)
+  }
 
   return (
     <Container className="video-container">
@@ -72,27 +86,48 @@ const ResultDetail = () => {
         variant="primary"
         onClick={() => setReleaseCounter(releaseCounter - 1)}
       >
-        Previous
+        Previous Release
       </Button>
       <Button
         variant="primary"
         onClick={() => setReleaseCounter(releaseCounter + 1)}
       >
-        Next
+        Next Release
       </Button>
       <div className="video-info">
         {releaseIds ? (
-          <div>
-            <div>{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
-            <div>{releaseIds[releaseCounter]}</div>
+          <div className="d-grid gap-2 track-select">
+            <div className="track-info">
+              <div className="track-title">{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
+              <div className="track-title">{releaseIds[releaseCounter]}</div>
+            </div>
+
+            <div className="video-container">
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${videoArrayUris[videoArrayPointer]}`}
+                // src="https://www.youtube.com/embed/K6v4Hj8DpcU"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              ></iframe>
+            </div>
             {/* <Video uri={videoArrayUris[releaseCounter]} /> */}
-            <iframe
-              width="560"
-              height="315"
-              src={x1}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe>
+            {videoArrayTitles ? (
+              videoArrayTitles.map((title) => (
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() =>
+                    setVideoArrayPointer(videoArrayTitles.indexOf(title))
+                  }
+                >
+                  {`${videoArrayTitles.indexOf(title)}. ${title}`}
+                </Button>
+              ))
+            ) : (
+              <div>no videos</div>
+            )}
           </div>
         ) : (
           <div>nos reulst</div>
