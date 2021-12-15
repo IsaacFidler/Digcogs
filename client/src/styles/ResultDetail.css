@@ -1,23 +1,35 @@
 .video-container{
   margin-top: 20vh;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   /* display: flex; */
   /* flex-direction: column; */
 
 }
 
 .video-info{
+  margin-top: 35px;
   background-color:#212529;
   display : flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 80vh;
 }
 
 
 .track-select{
-    border:1px solid red;
-    width: 90%;
+    /* width: 92%; */
+    display : flex;
+    align-items: center;
+}
+
+.track-info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: -150px;
+  border: 1px solid orange;
 }
 
 .track-title {
@@ -25,5 +37,45 @@
 }
 
 .video-container{
+  margin-top: -1px;
+}
 
+.buttons{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(95, 95, 95);
+  border-radius: 10px;
+  margin-left: 30px;
+  height: 315px;
+  overflow-y: auto;
+
+  /* padding: 10px; */
+}
+
+.track-button{
+  margin: 5px 10px 0px 10px;
+  width: 35vw;
+  width: 20vw;
+  border-color: rgb(63, 63, 63);
+  text-align: left;
+
+}
+.player-container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+
+.left-release-button{
+  margin: 15px;
+  width: 200px;
+}
+.right-release-button{
+  margin: 15px;
+  width: 200px;
+}
+
+.track-info-container{
+  width: 400px;
 }

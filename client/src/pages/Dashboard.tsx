@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import {
   Container,
-  Nav,
-  Navbar,
-  NavDropdown,
   Button,
-  Image,
-  Row,
   InputGroup,
   FormControl,
   Form

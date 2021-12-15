@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { ArrowRight } from 'react-bootstrap-icons';
+import { ArrowLeft } from 'react-bootstrap-icons';
 import {
   Container,
   Button
@@ -31,6 +32,7 @@ const ResultDetail = () => {
   const [videoArrayTitles, setVideoArrayTitles] = useState<any[]>([]);
   const [videoArrayLength, setVideoArrayLength] = useState(0);
   const [videoArrayPointer, setVideoArrayPointer] = useState(0);
+
   //useEffect once on initila render
   useEffect(() => {
     getResultVideos(id, setReleases);
@@ -82,52 +84,74 @@ const ResultDetail = () => {
 
   return (
     <Container className="video-container">
-      <Button
-        variant="primary"
-        onClick={() => setReleaseCounter(releaseCounter - 1)}
-      >
-        Previous Release
-      </Button>
-      <Button
-        variant="primary"
-        onClick={() => setReleaseCounter(releaseCounter + 1)}
-      >
-        Next Release
-      </Button>
+
       <div className="video-info">
         {releaseIds ? (
           <div className="d-grid gap-2 track-select">
             <div className="track-info">
-              <div className="track-title">{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
-              <div className="track-title">{releaseIds[releaseCounter]}</div>
-            </div>
+              {/* left release button */}
+              <Button
+                className="left-release-button"
+                style={{
+                  backgroundColor: '#69F0AE',
+                  borderColor: '#69F0AE',
+                }}
+                variant="primary"
+                onClick={() => setReleaseCounter(releaseCounter - 1)}
+              >
+                <ArrowLeft />
+              </Button>
+                <div className = 'track-info-container'>
+                  <div className="track-title">{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
+                  <div className="track-title">{releaseIds[releaseCounter]}</div>
+                </div>
 
-            <div className="video-container">
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${videoArrayUris[videoArrayPointer]}`}
-                // src="https://www.youtube.com/embed/K6v4Hj8DpcU"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              ></iframe>
+              {/* right release button */}
+            <Button
+              variant="primary"
+              style={{
+                backgroundColor: '#69F0AE',
+                borderColor: '#69F0AE',
+              }}
+              className="right-release-button"
+              onClick={() => setReleaseCounter(releaseCounter + 1)}
+            >
+              <ArrowRight />
+            </Button>
             </div>
-            {/* <Video uri={videoArrayUris[releaseCounter]} /> */}
-            {videoArrayTitles ? (
-              videoArrayTitles.map((title) => (
-                <Button
-                  variant="primary"
-                  size="lg"
-                  onClick={() =>
-                    setVideoArrayPointer(videoArrayTitles.indexOf(title))
-                  }
-                >
-                  {`${videoArrayTitles.indexOf(title)}. ${title}`}
-                </Button>
-              ))
-            ) : (
-              <div>no videos</div>
-            )}
+            <div className="player-container">
+              <div className="video-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${videoArrayUris[videoArrayPointer]}`}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                ></iframe>
+              </div>
+              <div className="buttons">
+                {videoArrayTitles ? (
+                  videoArrayTitles.map((title) => (
+                    <Button
+                      style={{
+                        backgroundColor: '#36474F',
+                        fontSize: '13px',
+                      }}
+                      variant="primary"
+                      className="track-button text-left"
+                      size="sm"
+                      onClick={() =>
+                        setVideoArrayPointer(videoArrayTitles.indexOf(title))
+                      }
+                    >
+                      {`${videoArrayTitles.indexOf(title)}. ${title}`}
+                    </Button>
+                  ))
+                ) : (
+                  <div>no videos</div>
+                )}
+              </div>
+            </div>
           </div>
         ) : (
           <div>nos reulst</div>

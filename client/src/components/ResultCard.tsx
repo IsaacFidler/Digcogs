@@ -24,10 +24,11 @@ const ResultCard: React.FC<Props> = (props: Props) => {
 
   function handleClick(id:string) {
     return (event: React.MouseEvent) => {
-    history.push(`/result/${id}`)
-    event.preventDefault();
+      history.push(`/result/${id}`)
+      event.preventDefault();
+    }
   }
-  }
+
   return (
     <Container
       className="result-card"
