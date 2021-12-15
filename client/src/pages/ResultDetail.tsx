@@ -33,7 +33,6 @@ const ResultDetail = () => {
   //useEffect once on initila render
   useEffect(() => {
     getResultVideos(id, setReleases);
-    getIndividualReleaseInfo('11594503', setVideoArray);
 
   }, []);
 
@@ -43,14 +42,29 @@ const ResultDetail = () => {
     setReleaseTitle(releases.map((item)=>item.title))
     setReleaseArtist(releases.map((item)=>item.artist))
     setReleaseCatno(releases.map((item)=>item.catno))
+    // console.log(releaseCounter)
+    console.log(releaseIds);
   }, [releases]);
+
+
+
+  useEffect(() => {
+    getIndividualReleaseInfo(releaseIds[0], setVideoArray);
+
+  }, [releaseIds]);
+
+  useEffect(() => {
+    getIndividualReleaseInfo(releaseIds[releaseCounter], setVideoArray);
+
+  }, [releaseCounter]);
 
   //useEffect once when the array of info for each video has been fetched
   useEffect(() => {
     setVideoArrayUri(videoArray.map((item) => item.uri));
     setVideoArrayTitles(videoArray.map((item) => item.title));
-    console.log(videoArrayUris[releaseCounter]);
+    console.log(videoArrayTitles)
   }, [videoArray]);
+
 
   return (
     <Container className="video-container">

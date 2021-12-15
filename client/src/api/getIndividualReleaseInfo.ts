@@ -1,5 +1,5 @@
 export const getIndividualReleaseInfo = (
-  releaseId: string | undefined,
+  releaseId: string | undefined | number,
   setState: (arg0: any) => any
 ) => {
   const KEY = process.env.REACT_APP_DISCOGS_KEY;
