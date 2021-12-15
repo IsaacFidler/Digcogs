@@ -14,6 +14,7 @@ import '../styles/ResultDetail.css'
 import { Video } from '../components/Video';
 
 const ResultDetail = () => {
+  const x1 = 'https://www.youtube.com/embed/62EaMCOU7rI';
   const { id } = useParams();
   //need to write interface for object coming from discogs api
   const [releases, setReleases] = useState<any[]>([]);
@@ -70,7 +71,14 @@ const ResultDetail = () => {
           <div>
             <div>{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
             <div>{releaseIds[releaseCounter]}</div>
-            <Video uri={videoArrayUris[releaseCounter]} />
+            {/* <Video uri={videoArrayUris[releaseCounter]} /> */}
+            <iframe
+              width="560"
+              height="315"
+              src={x1}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
           </div>
         ) : (
           <div>nos reulst</div>
