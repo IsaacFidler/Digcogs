@@ -43,7 +43,6 @@ body{
 
 .dashboard-recommendation{
   margin-top:60px;
-  border: 1px solid blue;
 
   flex-direction: column;
   justify-content: center;
