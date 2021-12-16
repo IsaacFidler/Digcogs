@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 import background from './assets/background.jpeg';
 import './App.css';
 import Auth0ProviderWithHistory from './auth0provider';
+
+import { initializeApp } from 'firebase/app';
+// import  {useAuthState} from 'react-firebase-hooks/auth'
+import {useCollectionData} from 'react-firebase-hooks/firestore'
+
 import {
   Container,
   Nav,
@@ -34,6 +39,18 @@ import ResultDetail from './pages/ResultDetail';
 //
 import { useAuth0 } from '@auth0/auth0-react';
 import { useSelector } from 'react-redux';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyDdft9MAXefF08AxH3swx91arQEIMVIAmM',
+  authDomain: 'digcogs-47207.firebaseapp.com',
+  projectId: 'digcogs-47207',
+  storageBucket: 'digcogs-47207.appspot.com',
+  messagingSenderId: '913240102320',
+  appId: '1:913240102320:web:e84d9bc2a2f0481e897275',
+  measurementId: 'G-9RN3M80Q5D',
+};
+
+const app = initializeApp(firebaseConfig);
 
 function App() {
 

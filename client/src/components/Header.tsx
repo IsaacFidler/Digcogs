@@ -7,6 +7,8 @@ import { Link, useHistory } from 'react-router-dom';
 // import MainNav from './MainNav';
 import AuthNav from './AuthNav';
 import Dashboard from '../pages/Dashboard';
+
+
 const Header: React.FC = () => {
 
   const history = useHistory();
@@ -45,7 +47,7 @@ const Header: React.FC = () => {
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
-                Separated link
+                Separate d link
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

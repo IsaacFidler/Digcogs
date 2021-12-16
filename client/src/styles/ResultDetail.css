@@ -21,6 +21,8 @@
     /* width: 92%; */
     display : flex;
     align-items: center;
+    /* border: 1px solid orange; */
+    margin-bottom: -100px;;
 }
 
 .track-info{
@@ -29,7 +31,6 @@
   align-items: center;
   justify-content: center;
   margin-top: -150px;
-  border: 1px solid orange;
 }
 
 .track-title {
@@ -78,4 +79,11 @@
 
 .track-info-container{
   width: 400px;
+}
+
+.discog-buttons-container{
+  display : flex;
+  width: 40%;
+  align-items: flex-start;
+  justify-content: flex-start;
 }

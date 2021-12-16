@@ -7,15 +7,18 @@ import {
 } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
-
+//api functions
 import { getResultVideos } from '../api/getResultVideos';
 import { getIndividualReleaseInfo } from '../api/getIndividualReleaseInfo';
 import { youtube_parser } from '../helpers/youtubeRegex';
 import '../styles/ResultDetail.css'
 import { Video } from '../components/Video';
 
+//components
+
+import DiscogsButtons from '../components/DiscogsButtons';
+
 const ResultDetail = () => {
-  const x1 = 'https://www.youtube.com/embed/62EaMCOU7rI';
   const { id } = useParams();
   //need to write interface for object coming from discogs api
   const [releases, setReleases] = useState<any[]>([]);
@@ -84,7 +87,6 @@ const ResultDetail = () => {
 
   return (
     <Container className="video-container">
-
       <div className="video-info">
         {releaseIds ? (
           <div className="d-grid gap-2 track-select">
@@ -101,23 +103,23 @@ const ResultDetail = () => {
               >
                 <ArrowLeft />
               </Button>
-                <div className = 'track-info-container'>
-                  <div className="track-title">{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
-                  <div className="track-title">{releaseIds[releaseCounter]}</div>
-                </div>
+              <div className="track-info-container">
+                <div className="track-title">{`${releaseArtist[releaseCounter]} - ${releaseTitle[releaseCounter]} [${releaseCatno[releaseCounter]}]`}</div>
+                <div className="track-title">{releaseIds[releaseCounter]}</div>
+              </div>
 
               {/* right release button */}
-            <Button
-              variant="primary"
-              style={{
-                backgroundColor: '#69F0AE',
-                borderColor: '#69F0AE',
-              }}
-              className="right-release-button"
-              onClick={() => setReleaseCounter(releaseCounter + 1)}
-            >
-              <ArrowRight />
-            </Button>
+              <Button
+                variant="primary"
+                style={{
+                  backgroundColor: '#69F0AE',
+                  borderColor: '#69F0AE',
+                }}
+                className="right-release-button"
+                onClick={() => setReleaseCounter(releaseCounter + 1)}
+              >
+                <ArrowRight />
+              </Button>
             </div>
             <div className="player-container">
               <div className="video-container">
@@ -151,6 +153,23 @@ const ResultDetail = () => {
                   <div>no videos</div>
                 )}
               </div>
+            </div>
+            <div className="discog-buttons-container">
+              <DiscogsButtons
+                releaseID={releaseIds[releaseCounter]}
+                title={'Discogs'}
+                logo={true}
+              />
+              <DiscogsButtons
+                releaseID={releaseIds[releaseCounter]}
+                title={'Favourites +'}
+                logo={false}
+                />
+              <DiscogsButtons
+                releaseID={releaseIds[releaseCounter]}
+                title={'Wantlist +'}
+                logo={false}
+              />
             </div>
           </div>
         ) : (
