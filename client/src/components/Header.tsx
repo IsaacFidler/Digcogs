@@ -30,15 +30,12 @@ const Header: React.FC = () => {
     >
       <Container>
         {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
-        <Image className="logo" src={logo} />
+        <Image className="logo" src={logo} onClick={homeButton()} />
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item
-                href="#action/3.1"
-                onClick={homeButton()}
-              >
+              <NavDropdown.Item href="#action/3.1" onClick={homeButton()}>
                 Dashboard
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

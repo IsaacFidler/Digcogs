@@ -21,9 +21,11 @@ interface Props {
 }
 
 const DiscogsButtons: React.FC<Props> = ( props) => {
+
   function openDiscogs() {
     window.open(`https://www.discogs.com/release/${releaseID}`);
   }
+
   const {releaseID, title, logo} = props
 
   return (
