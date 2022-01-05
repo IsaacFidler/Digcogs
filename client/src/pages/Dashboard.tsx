@@ -92,7 +92,7 @@ const Dashboard = () => {
           <div className="userinfo-container"></div>
         </div>
 
-        {/* <div className="dashboard-recommendation">
+        <div className="dashboard-recommendation">
             <div className="divider"></div>
             <div className="search-results">
               {searchResults ? (
@@ -107,7 +107,7 @@ const Dashboard = () => {
                 <div>nos reulst</div>
               )}
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

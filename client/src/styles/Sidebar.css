@@ -8,3 +8,61 @@
   width: 200px;
   margin-top: 10px;
 }
+
+.section-buttons{
+  margin-top: 50px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.wantlist-button{
+
+  /* border: 1px solid blue; */
+}
+.home-button{
+
+  /* border: 1px solid pink; */
+}
+.favourite-button{
+
+  /* border: 1px solid green; */
+}
+
+.side-button{
+  display: flex;
+  align-content: center;
+  margin: 10px;
+  height: 45px;
+  border-radius: 5px;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  color: #6C6C6C;
+  transition: 0.3s;
+}
+
+.side-button:hover{
+
+  /* color: white; */
+  background-color: #3E4F58;
+}
+
+.side-button:active{
+
+  /* color: #69F0AE; */
+  opacity:0.6;
+
+}
+
+.textt{
+  /* border: solid 1px red; */
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+}
+
+.icon{
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
