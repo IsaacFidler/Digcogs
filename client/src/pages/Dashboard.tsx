@@ -47,8 +47,33 @@ const Dashboard = () => {
       </div>
       <div className="main-content">
         <div className="header">
-          <Button></Button>
-          <form onSubmit={handleSubmit}>
+          <div className="button-container">
+            <Button
+              className="history-button"
+              as="input"
+              type="button"
+              value="<"
+              style={{
+                height: '35px',
+                borderRadius: '20px',
+                backgroundColor: '#212529',
+                borderColor: '#212529',
+              }}
+            />
+            <Button
+              className="history-button2"
+              as="input"
+              type="button"
+              value=">"
+              style={{
+                height: '35px',
+                borderRadius: '20px',
+                backgroundColor: '#212529',
+                borderColor: '#212529',
+              }}
+            />
+          </div>
+          <form className="form" onSubmit={handleSubmit}>
             <InputGroup className="mb-3 search-bar">
               <FormControl
                 placeholder="Search by label or artist"
@@ -57,15 +82,14 @@ const Dashboard = () => {
                 value={searchTerm}
                 onChange={handleUserInput}
                 style={{
-                  "height": "35px",
-                  "borderRadius": "20px"
-                }
-                }
+                  height: '35px',
+                  borderRadius: '20px',
+                  width: '200px',
+                }}
               />
-
-
             </InputGroup>
           </form>
+          <div className="userinfo-container"></div>
         </div>
 
         {/* <div className="dashboard-recommendation">

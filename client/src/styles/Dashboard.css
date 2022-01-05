@@ -28,15 +28,22 @@ body{
   margin: 0;
 
 }
+
+.history-button{
+
+  margin-right: px;
+}
 .main-content{
   display: flex;
   flex-direction: row;
   justify-content: center ;
+  align-items: flex-start;
+  justify-content: flex-start;
   border: 1px solid green;
   width: 100%;
   height: 100%;
   margin-top: 10px;
-  margin-left: 100px;
+  margin-left: 50px;
   padding-right:100px;
   overflow-y: auto;
 }
@@ -47,12 +54,32 @@ body{
 }
 
 .header{
-  border: 1px solid orange;
-  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 1px solid orange; */
   position: absolute;
+  height: 35px;
+  width:77%;
+  /* margin-left:99px; */
+  align-content: space-between;
+}
+
+.form {
+  /* border: solid pink 1px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  width: 400px;
+
 }
 
 .search-bar{
+  width: 400px;
+  height: 20px;
+  /* border: solid red 1px; */
+  margin-bottom: 0px;
 }
 
 .divider{
@@ -68,7 +95,21 @@ body{
   width: 700px;
   /* margin-top: -500px; */
   color: white;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+.button-container{
+  margin-left: 0px;
+
+}
+
+.userinfo-container{
+  background-color: #212529;
+  width: 200px;
+  height: 35px;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 50px;
 }
 
 .dashboard-recommendation{
