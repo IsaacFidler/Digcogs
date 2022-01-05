@@ -11,6 +11,7 @@ import {
   Form,
   Image,
 } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
 
@@ -19,11 +20,20 @@ interface Props {
 
 export default function Sidebar({}: Props): ReactElement {
 
+  const history = useHistory();
+
   useEffect(()=> {
   const currentURL = window.location.pathname
 
   console.log(currentURL)
   }, [])
+
+  const handleClick = (navigationURI:string) => {
+    return (event: React.MouseEvent) => {
+      history.push(`/${navigationURI}`);
+      event.preventDefault();
+    };
+  }
 
   return (
     <div className="sidebar-container">
@@ -31,6 +41,7 @@ export default function Sidebar({}: Props): ReactElement {
       <div className="section-buttons">
         <div
           className="home-button side-button"
+          onClick={handleClick('dashboard')}
           style={{
             color:
               window.location.pathname == '/dashboard' ? 'white' : '#6C6C6C',

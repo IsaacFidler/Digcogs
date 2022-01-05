@@ -30,7 +30,7 @@ const ResultCard: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <Container
+    <div
       className="result-card"
       onClick={handleClick(props.id)}
     >
@@ -39,8 +39,9 @@ const ResultCard: React.FC<Props> = (props: Props) => {
       </div>
       <div className="result-info">
         <h1 className="result-title">{props.title}</h1>
+        <h1 className="result-tag">Label</h1>
       </div>
-    </Container>
+    </div>
   );
 };
 

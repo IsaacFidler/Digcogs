@@ -24,7 +24,6 @@ body{
   align-items: flex-start;
   height: 100vh;
   width: 100vw;
-  border: 1px solid red;
   margin: 0;
 
 }
@@ -41,12 +40,11 @@ body{
   justify-content: center ;
   align-items: flex-start;
   justify-content: flex-start;
-  border: 1px solid green;
   width: 100%;
   height: 100%;
   margin-top: 10px;
-  margin-left: 50px;
-  padding-right:100px;
+  margin-left: 10px;
+  margin-right: 10px;
   overflow-y: auto;
 }
 
@@ -62,7 +60,7 @@ body{
   /* border: 1px solid orange; */
   position: absolute;
   height: 35px;
-  width:77%;
+  width:80%;
   /* margin-left:99px; */
   align-content: space-between;
 }
@@ -72,7 +70,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 20px;
   width: 400px;
 
 }
@@ -101,7 +99,7 @@ body{
 }
 
 .button-container{
-  margin-left: 0px;
+  margin-left: 10px;
 
 }
 
@@ -111,17 +109,17 @@ body{
   height: 35px;
   border-radius: 20px;
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: 0px;
 }
 
 .dashboard-recommendation{
-  margin-top: 70px;
-  border: 1px solid blue;
+  margin-top: 40px;
   /* margin-top:60px; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  overflow-x: hidden;
 
 }
 
@@ -132,9 +130,7 @@ body{
 .search-results{
   margin-top: 500px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
-
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
 }
 
