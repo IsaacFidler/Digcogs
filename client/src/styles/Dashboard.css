@@ -51,11 +51,11 @@ body{
 }
 
 .side-bar{
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 
 }
 
-.header{
+.header-dashboard{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -115,7 +115,7 @@ body{
 }
 
 .dashboard-recommendation{
-  margin-top: 50px;
+  margin-top: 70px;
   border: 1px solid blue;
   /* margin-top:60px; */
   flex-direction: column;
@@ -139,5 +139,9 @@ body{
 }
 
 .background {
-  height: 100%;
+
+  width: 100vw;
+  position: absolute;
+  left: 0px;
+  z-index: -1;
 }

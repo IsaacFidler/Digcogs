@@ -28,9 +28,9 @@ const Header: React.FC = () => {
       bg="dark"
       variant="dark"
     >
-      <Container>
+      <Container className ='header-container'>
         {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
-        <Image className="logo" src={logo} onClick={homeButton()} />
+        <Image className="logo-header" src={logo} onClick={homeButton()} />
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

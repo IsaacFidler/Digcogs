@@ -27,7 +27,7 @@ export default function Sidebar({}: Props): ReactElement {
 
   return (
     <div className="sidebar-container">
-      <Image className="logo" src={logo} />
+      <Image className="sidebar-logo" src={logo} />
       <div className="section-buttons">
         <div
           className="home-button side-button"

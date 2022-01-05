@@ -46,7 +46,7 @@ const Dashboard = () => {
         <Sidebar />
       </div>
       <div className="main-content">
-        <div className="header">
+        <div className="header-dashboard">
           <div className="button-container">
             <Button
               className="history-button"
