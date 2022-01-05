@@ -4,14 +4,23 @@ import {
 } from 'react-bootstrap';
 
 import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../redux/auth';
+import { Link, useHistory } from 'react-router-dom';
+
 
 const LogoutButton = () => {
-  const { logout } = useAuth0();
+
+  const history = useHistory();
   const { auth } = useSelector((state: any) => state.auth);
   const dispatch = useDispatch();
+
+
+  async function logoutDiscogs() {
+    let response = await fetch('http://localhost:9000/logout');
+    dispatch(logout());
+    history.push(`/`);
+  }
 
   return (
     <Button
@@ -22,10 +31,7 @@ const LogoutButton = () => {
         borderColor: '#69F0AE',
       }}
       onClick={() => {
-        dispatch(logout());
-        logout({
-          returnTo: window.location.origin,
-        });
+        logoutDiscogs()
       }}
     >
       Log Out

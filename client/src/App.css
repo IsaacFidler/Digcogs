@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover; */
   height: 100vh;
+  width: 100vw;
 }
 
 .button {
@@ -12,4 +13,8 @@
 }
 .top-block{
   height: 79px;
+}
+.the-container{
+  margin: 0px;
+  width: 100vw;
 }

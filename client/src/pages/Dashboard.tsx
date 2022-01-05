@@ -5,12 +5,15 @@ import {
   Button,
   InputGroup,
   FormControl,
-  Form
+  Form,
+  Image
 } from 'react-bootstrap';
 
+import background from '../assets/backgroundBlob.png';
 import '../styles/Dashboard.css';
 import { getSearchResults } from '../api/getSearchResults'
 import ResultCard from '../components/ResultCard';
+import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -37,43 +40,52 @@ const Dashboard = () => {
   };
 
   return (
-    <Container className="dashboard-container">
-      <h1 className="dashboard-header">Search by label or Artist</h1>
-      <form onSubmit={handleSubmit}>
-        <InputGroup className="mb-3 search-bar">
-          <FormControl
-            placeholder="Search by label or artist"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-            value={searchTerm}
-            onChange={handleUserInput}
-          />
-          <Button
-            variant="secondary"
-            id="button-addon2"
-            type="submit"
-            style={{
-              backgroundColor: '#69F0AE',
-              border: '#69F0AE',
-            }}
-          >
-            Search
-          </Button>
-        </InputGroup>
-      </form>
-      <div className="dashboard-recommendation">
-        <div>
-          <div className="divider"></div>
-          <div className="search-results">
-            {searchResults ? (
-              searchResults.map((result) => (
-                  <ResultCard id={result.id} title={result.title} cover_image={result.cover_image} />
-              ))
-            ) : <div>nos reulst</div>}
-          </div>
-        </div>
+    <div className="dashboard-containe">
+      <Image className="background" src={background} />
+      <div className="side-bar">
+        <Sidebar />
       </div>
-    </Container>
+      <div className="main-content">
+        <div className="header">
+          <Button></Button>
+          <form onSubmit={handleSubmit}>
+            <InputGroup className="mb-3 search-bar">
+              <FormControl
+                placeholder="Search by label or artist"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+                value={searchTerm}
+                onChange={handleUserInput}
+                style={{
+                  "height": "35px",
+                  "borderRadius": "20px"
+                }
+                }
+              />
+
+
+            </InputGroup>
+          </form>
+        </div>
+
+        {/* <div className="dashboard-recommendation">
+            <div className="divider"></div>
+            <div className="search-results">
+              {searchResults ? (
+                searchResults.map((result) => (
+                  <ResultCard
+                    id={result.id}
+                    title={result.title}
+                    cover_image={result.cover_image}
+                  />
+                ))
+              ) : (
+                <div>nos reulst</div>
+              )}
+          </div>
+        </div> */}
+      </div>
+    </div>
   );
 };
 

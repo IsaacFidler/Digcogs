@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "disconnect": "^1.2.2",
     "esm": "^3.2.25",

@@ -1,11 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import background from './assets/background.jpeg';
 import './App.css';
-import Auth0ProviderWithHistory from './auth0provider';
-
-import { initializeApp } from 'firebase/app';
-// import  {useAuthState} from 'react-firebase-hooks/auth'
-import {useCollectionData} from 'react-firebase-hooks/firestore'
 
 import {
   Container,
@@ -36,48 +31,83 @@ import Loading from './components/Loading'
 import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import ResultDetail from './pages/ResultDetail';
+import LoginSuccessful from './pages/LoginSuccessful';
 //
-import { useAuth0 } from '@auth0/auth0-react';
-import { useSelector } from 'react-redux';
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyDdft9MAXefF08AxH3swx91arQEIMVIAmM',
-  authDomain: 'digcogs-47207.firebaseapp.com',
-  projectId: 'digcogs-47207',
-  storageBucket: 'digcogs-47207.appspot.com',
-  messagingSenderId: '913240102320',
-  appId: '1:913240102320:web:e84d9bc2a2f0481e897275',
-  measurementId: 'G-9RN3M80Q5D',
-};
-
-const app = initializeApp(firebaseConfig);
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from './redux/auth';
 
 function App() {
-
-  const { loginWithRedirect, logout, user, isLoading, } = useAuth0();
+  const [auth1, setAuth1] = useState (false)
+  // const { loginWithRedirect, logout, user, isLoading, } = useAuth0();
 
   //check if auth on redux storeEnhancers
   const { auth } = useSelector((state :any) => state.auth)
+  const dispatch = useDispatch();
+
+  // async function fetchText() {
+  //   console.log('yes')
+  //   let response = await fetch('http://localhost:9000/admin');
+  //   let data = await response.json();
+  //   console.log('this is cata  ' + data)
+  //   console.log(auth + 'authash')
+  //   if(data){
+  //     setAuth1(true)
+  //     dispatch(login());
+  //   } else {
+  //     setAuth1(false)
+  //     dispatch(logout());
+  //   }
+  // }
+  function fetchText() {
+    fetch('http://localhost:9000/admin')
+      //The json() method of the Response interface takes a Response stream and reads it to completion. It returns a promise which resolves with the result of parsing the body text as JSON.
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error));
+  }
+
+  useEffect(()=> {
+    // getSearchResults('hessle+audio', setSearchResults )
+    // fetchText();
+    console.log(auth)
+
+  },[])
 
   return (
-    <Auth0ProviderWithHistory>
-      <Router>
-        <div className="App">
-          <Header />
-          <div className="top-block"></div>
-          <div className="the-container flex-grow-1">
-            <Route path="/">
-              {auth ? <Redirect to="/dashboard" /> : <Home />}
+    <Router>
+      <div className="App">
+
+        {/* <Header /> */}
+
+        <div className="the-container flex-grow-1">
+        {/* <Button onClick={fetchText}>Primary</Button> */}
+          <Switch>
+            {/* <Route path="/">
+              {auth1 ? <Redirect to="/dashboard" /> : <Home />}
+            </Route> */}
+
+            <Route path="/dashboard">
+              <Dashboard />
             </Route>
-            <ProtectedRoute path="/dashboard" component={Dashboard} />
-            <ProtectedRoute
-              path="/result/:id"
-              component={ResultDetail}
-            />
-          </div>
+
+            <Route path="/result/:id">
+              <ResultDetail />
+            </Route>
+
+            <Route path="/LoginSuccessful">
+              <LoginSuccessful />
+            </Route>
+
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+
+          {/* <ProtectedRoute path="/dashboard" component={Dashboard} />
+          <ProtectedRoute path="/result/:id" component={ResultDetail} /> */}
         </div>
-      </Router>
-    </Auth0ProviderWithHistory>
+      </div>
+    </Router>
   );
 }
 

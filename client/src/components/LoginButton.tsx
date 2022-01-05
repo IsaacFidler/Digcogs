@@ -12,7 +12,7 @@ const LoginButton = () => {
   const dispatch = useDispatch();
 
   function openDiscogsAuth() {
-    window.open(`http://localhost:9000/authorize`);
+    window.location.href=`http://localhost:9000/authorize`;
   }
 
   return (
