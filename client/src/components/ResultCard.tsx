@@ -13,27 +13,23 @@ import { Link, useHistory } from 'react-router-dom';
 // import MainNav from './MainNav';
 
 interface Props {
-  id:string,
-  title: string,
-  cover_image: string
+  id: string;
+  title: string;
+  cover_image: string;
 }
 
 const ResultCard: React.FC<Props> = (props: Props) => {
-
   const history = useHistory();
 
-  function handleClick(id:string) {
+  function handleClick(id: string) {
     return (event: React.MouseEvent) => {
-      history.push(`/result/${id}`)
+      history.push(`/result/${id}`);
       event.preventDefault();
-    }
+    };
   }
 
   return (
-    <div
-      className="result-card"
-      onClick={handleClick(props.id)}
-    >
+    <div className="result-card" onClick={handleClick(props.id)}>
       <div className="result-image">
         <Image className="result-logo" src={props.cover_image} />
       </div>

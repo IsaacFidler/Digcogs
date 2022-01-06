@@ -6,12 +6,12 @@ import {
   InputGroup,
   FormControl,
   Form,
-  Image
+  Image,
 } from 'react-bootstrap';
 
 import background from '../assets/backgroundBlob.png';
 import '../styles/Dashboard.css';
-import { getSearchResults } from '../api/getSearchResults'
+import { getSearchResults } from '../api/getSearchResults';
 import ResultCard from '../components/ResultCard';
 import Sidebar from '../components/Sidebar';
 
@@ -19,16 +19,17 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
 
-  useEffect(()=> {
+  useEffect(() => {
     // getSearchResults('hessle+audio', setSearchResults )
     console.log(searchResults);
     setSearchTerm('');
-  },[])
+  }, []);
 
-  const handleUserInput = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handleUserInput = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setSearchTerm(e.target.value);
   };
-
 
   const handleSubmit = (evt: { preventDefault: () => void }) => {
     evt.preventDefault();
@@ -93,19 +94,19 @@ const Dashboard = () => {
         </div>
 
         <div className="dashboard-recommendation">
-            <div className="divider"></div>
-            <div className="search-results">
-              {searchResults ? (
-                searchResults.map((result) => (
-                  <ResultCard
-                    id={result.id}
-                    title={result.title}
-                    cover_image={result.cover_image}
-                  />
-                ))
-              ) : (
-                <div>nos reulst</div>
-              )}
+          <div className="divider"></div>
+          <div className="search-results">
+            {searchResults ? (
+              searchResults.map((result) => (
+                <ResultCard
+                  id={result.id}
+                  title={result.title}
+                  cover_image={result.cover_image}
+                />
+              ))
+            ) : (
+              <div>nos reulst</div>
+            )}
           </div>
         </div>
       </div>

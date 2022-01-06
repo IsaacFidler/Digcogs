@@ -1,16 +1,20 @@
-
 import logo from '../assets/digcogsLogoWhite.png';
-import { Container, Nav, Navbar, NavDropdown, Button, Image } from 'react-bootstrap';
-import '../styles/Header.css'
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Button,
+  Image,
+} from 'react-bootstrap';
+import '../styles/Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useHistory } from 'react-router-dom';
 // import MainNav from './MainNav';
 import AuthNav from './AuthNav';
 import Dashboard from '../pages/Dashboard';
 
-
 const Header: React.FC = () => {
-
   const history = useHistory();
 
   function homeButton() {
@@ -28,7 +32,7 @@ const Header: React.FC = () => {
       bg="dark"
       variant="dark"
     >
-      <Container className ='header-container'>
+      <Container className="header-container">
         {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
         <Image className="logo-header" src={logo} onClick={homeButton()} />
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

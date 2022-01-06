@@ -1,7 +1,7 @@
-import React, { ReactElement, useEffect } from 'react'
-import '../styles/Sidebar.css'
+import React, { ReactElement, useEffect } from 'react';
+import '../styles/Sidebar.css';
 import logo from '../assets/digcogsLogoWhite.png';
-import { HouseDoorFill, EyeFill, HeartFill} from 'react-bootstrap-icons';
+import { HouseDoorFill, EyeFill, HeartFill } from 'react-bootstrap-icons';
 
 import {
   Container,
@@ -13,27 +13,23 @@ import {
 } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-interface Props {
-
-}
-
+interface Props {}
 
 export default function Sidebar({}: Props): ReactElement {
-
   const history = useHistory();
 
-  useEffect(()=> {
-  const currentURL = window.location.pathname
+  useEffect(() => {
+    const currentURL = window.location.pathname;
 
-  console.log(currentURL)
-  }, [])
+    console.log(currentURL);
+  }, []);
 
-  const handleClick = (navigationURI:string) => {
+  const handleClick = (navigationURI: string) => {
     return (event: React.MouseEvent) => {
       history.push(`/${navigationURI}`);
       event.preventDefault();
     };
-  }
+  };
 
   return (
     <div className="sidebar-container">

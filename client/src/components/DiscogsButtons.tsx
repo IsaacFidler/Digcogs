@@ -7,26 +7,24 @@ import {
   Image,
 } from 'react-bootstrap';
 
-import {Bullseye} from 'react-bootstrap-icons'
+import { Bullseye } from 'react-bootstrap-icons';
 
-
-import '../styles/DiscogsButtons.css'
+import '../styles/DiscogsButtons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import MainNav from './MainNav';
 
 interface Props {
-  releaseID : number,
-  title: string,
-  logo: boolean
+  releaseID: number;
+  title: string;
+  logo: boolean;
 }
 
-const DiscogsButtons: React.FC<Props> = ( props) => {
-
+const DiscogsButtons: React.FC<Props> = (props) => {
   function openDiscogs() {
     window.open(`https://www.discogs.com/release/${releaseID}`);
   }
 
-  const {releaseID, title, logo} = props
+  const { releaseID, title, logo } = props;
 
   return (
     <Container>
@@ -39,7 +37,7 @@ const DiscogsButtons: React.FC<Props> = ( props) => {
         }}
         onClick={() => openDiscogs()}
       >
-        {logo && <Bullseye /> }
+        {logo && <Bullseye />}
 
         {title}
       </Button>

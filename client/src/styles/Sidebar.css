@@ -1,38 +1,34 @@
-.sidebar-container{
+.sidebar-container {
   height: 100vh;
   width: 220px;
   background-color: #212529;
   border-radius: 0px 20px 20px 0px;
 }
 
-.sidebar-logo{
+.sidebar-logo {
   width: 200px;
   margin-top: 20px;
   margin-left: -30px;
   margin-bottom: -30px;
-
 }
 
-.section-buttons{
+.section-buttons {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
 }
 
-.wantlist-button{
-
+.wantlist-button {
   /* border: 1px solid blue; */
 }
-.home-button{
-
+.home-button {
   /* border: 1px solid pink; */
 }
-.favourite-button{
-
+.favourite-button {
   /* border: 1px solid green; */
 }
 
-.side-button{
+.side-button {
   display: flex;
   align-content: center;
   margin: 10px;
@@ -41,31 +37,28 @@
   color: white;
   text-align: left;
   cursor: pointer;
-  color: #6C6C6C;
+  color: #6c6c6c;
   transition: 0.3s;
 }
 
-.side-button:hover{
-
+.side-button:hover {
   /* color: white; */
-  background-color: #3E4F58;
+  background-color: #3e4f58;
 }
 
-.side-button:active{
-
+.side-button:active {
   /* color: #69F0AE; */
-  opacity:0.6;
-
+  opacity: 0.6;
 }
 
-.textt{
+.textt {
   /* border: solid 1px red; */
   margin-top: 10px;
   margin-left: 10px;
   display: flex;
 }
 
-.icon{
+.icon {
   margin-right: 15px;
   margin-bottom: 10px;
 }
