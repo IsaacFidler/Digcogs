@@ -35,14 +35,13 @@ const Search = () => {
 
   return (
     <div className="search-containe">
-      <Image className="background" src={background} />
-      <div className="side-bar">
+      {/* <div className="side-bar">
         <Sidebar />
-      </div>
+      </div> */}
       <div className="main-content">
-        <div className="header-search">
+        {/* <div className="header-search">
           <DashHeader />
-        </div>
+        </div> */}
 
         <div className="search-recommendation">
           <form className="form" onSubmit={handleSubmit}>

@@ -1,18 +1,19 @@
 .header-userinfo-container {
   background-color: #212529;
-  width: 200px;
+  width: 100px;
   height: 35px;
   border-radius: 20px;
   margin-left: auto;
-  margin-right: 0px;
+  margin-right: 10px;
 }
 
 .header-dashboard {
   display: flex;
   width: 100%;
   /* border: 1px solid red; */
-  margin-top: 10px;
-  padding: 0px 20px 0px 20px;
+  margin-top: 21px;
+  padding: 0px 20px 0px 10px;
+  margin-left: 220px;
 }
 
 .header-history-button {

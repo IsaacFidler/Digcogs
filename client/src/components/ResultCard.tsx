@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import '../styles/ResultCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import MainNav from './MainNav';
 
 interface Props {
@@ -19,11 +19,12 @@ interface Props {
 }
 
 const ResultCard: React.FC<Props> = (props: Props) => {
-  const history = useHistory();
+  // const history = useHistory();
+  const navigate = useNavigate();
 
   function handleClick(id: string) {
     return (event: React.MouseEvent) => {
-      history.push(`/result/${id}`);
+      navigate(`/result/${id}`, { replace: true });
       event.preventDefault();
     };
   }

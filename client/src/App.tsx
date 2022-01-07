@@ -17,8 +17,9 @@ import ProtectedRoute from './routes/ProtectedRoutes';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect,
-  Switch,
+  Routes,
+  // Redirect,
+  // Switch,
 } from 'react-router-dom';
 
 //components
@@ -26,7 +27,8 @@ import {
 import Header from './components/Header';
 import Loading from './components/Loading';
 import Sidebar from './components/Sidebar';
-
+import DashHeader from './components/DashHeader';
+import SidebarHeader from './components/SIdebarHeader';
 //pages
 
 import Dashboard from './pages/Dashboard';
@@ -78,37 +80,15 @@ function App() {
     <Router>
       <div className="App">
         {/* <Header /> */}
-
         <div className="the-container flex-grow-1">
-          {/* <Button onClick={fetchText}>Primary</Button> */}
-          <Switch>
-            {/* <Route path="/">
-              {auth1 ? <Redirect to="/dashboard" /> : <Home />}
-            </Route> */}
-
-            <Route path="/dashboard">
-              <Dashboard />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="dashboard" element={<SidebarHeader />}>
+              <Route path="home" element={<Dashboard />} />
+              <Route path="search" element={<Search />} />
+              <Route path="result/:id" element={<ResultDetail />} />
             </Route>
-
-            <Route path="/search">
-              <Search />
-            </Route>
-
-            <Route path="/result/:id">
-              <ResultDetail />
-            </Route>
-
-            <Route path="/LoginSuccessful">
-              <LoginSuccessful />
-            </Route>
-
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-
-          {/* <ProtectedRoute path="/dashboard" component={Dashboard} />
-          <ProtectedRoute path="/result/:id" component={ResultDetail} /> */}
+          </Routes>
         </div>
       </div>
     </Router>

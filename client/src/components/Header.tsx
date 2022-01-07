@@ -9,18 +9,18 @@ import {
 } from 'react-bootstrap';
 import '../styles/Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import MainNav from './MainNav';
 import AuthNav from './AuthNav';
 import Search from '../pages/Search';
 import Dashboard from '../pages/Dashboard';
 
 const Header: React.FC = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function homeButton() {
     return (event: React.MouseEvent) => {
-      history.push(`/dashboard`);
+      navigate(`/dashboard`, { replace: true });
       event.preventDefault();
     };
   }
