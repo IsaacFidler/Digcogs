@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {
-  Container,
-  Button,
-  InputGroup,
-  FormControl,
-  Form,
-  Image,
-} from 'react-bootstrap';
+import { Button, InputGroup, FormControl, Image } from 'react-bootstrap';
 
 import background from '../assets/backgroundBlob.png';
 import '../styles/Dashboard.css';

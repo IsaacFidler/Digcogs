@@ -32,8 +32,8 @@ const DiscogsButtons: React.FC<Props> = (props) => {
         className="discog-button"
         variant="primary"
         style={{
-          backgroundColor: '#36474F',
-          borderColor: '#36474F',
+          backgroundColor: '#C4C4C4',
+          borderColor: '#C4C4C4',
         }}
         onClick={() => openDiscogs()}
       >
