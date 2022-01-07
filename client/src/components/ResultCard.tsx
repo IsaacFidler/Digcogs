@@ -24,7 +24,8 @@ const ResultCard: React.FC<Props> = (props: Props) => {
 
   function handleClick(id: string) {
     return (event: React.MouseEvent) => {
-      navigate(`/result/${id}`, { replace: true });
+      navigate(`/dashboard/result/${id}`, { replace: true });
+      // navigate(`/dashboard`, { replace: true });
       event.preventDefault();
     };
   }

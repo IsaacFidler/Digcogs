@@ -83,13 +83,9 @@ const ResultDetail = () => {
   return (
     <div className="video-container">
       <Image className="background-player" src={background} />
-      <div className="side-bar">
-        <Sidebar />
-      </div>
       <div className="video-info">
         {releaseIds ? (
           <div className="track-select">
-            <DashHeader />
             <div className="video-container">
               <iframe
                 width="560"
