@@ -30,6 +30,7 @@ import Sidebar from './components/Sidebar';
 //pages
 
 import Dashboard from './pages/Dashboard';
+import Search from './pages/Search';
 import Home from './pages/Home';
 import ResultDetail from './pages/ResultDetail';
 import LoginSuccessful from './pages/LoginSuccessful';
@@ -87,6 +88,10 @@ function App() {
 
             <Route path="/dashboard">
               <Dashboard />
+            </Route>
+
+            <Route path="/search">
+              <Search />
             </Route>
 
             <Route path="/result/:id">

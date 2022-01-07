@@ -8,8 +8,11 @@
 }
 
 .header-dashboard {
+  display: flex;
+  width: 100%;
   /* border: 1px solid red; */
   margin-top: 10px;
+  padding: 0px 20px 0px 20px;
 }
 
 .header-history-button {

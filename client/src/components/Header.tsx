@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useHistory } from 'react-router-dom';
 // import MainNav from './MainNav';
 import AuthNav from './AuthNav';
+import Search from '../pages/Search';
 import Dashboard from '../pages/Dashboard';
 
 const Header: React.FC = () => {

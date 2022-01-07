@@ -1,7 +1,12 @@
 import React, { ReactElement, useEffect } from 'react';
 import '../styles/Sidebar.css';
 import logo from '../assets/digcogsLogoWhite.png';
-import { HouseDoorFill, EyeFill, HeartFill } from 'react-bootstrap-icons';
+import {
+  HouseDoorFill,
+  EyeFill,
+  HeartFill,
+  Search,
+} from 'react-bootstrap-icons';
 
 import {
   Container,
@@ -50,6 +55,22 @@ export default function Sidebar({}: Props): ReactElement {
               <HouseDoorFill />
             </div>
             Home
+          </p>
+        </div>
+        <div
+          className="search-button side-button"
+          onClick={handleClick('search')}
+          style={{
+            color: window.location.pathname == '/search' ? 'white' : '#6C6C6C',
+            backgroundColor:
+              window.location.pathname == '/search' ? '#2B353A' : '#212529',
+          }}
+        >
+          <p className="textt">
+            <div className="icon">
+              <Search />
+            </div>
+            Search
           </p>
         </div>
         <div
